@@ -1,0 +1,61 @@
+{
+  "name": "mblock",
+  "productName": "mBlock",
+  "version": "5.6.0",
+  "description": "mBlock for Raspberry Pi",
+  "homepage": "https://olenepal.org",
+  "author": {
+    "name": "OLE Nepal",
+    "email": "info@olenepal.org",
+    "url": "https://olenepal.org"
+  },
+  "main": "packages/main/dist/index.cjs",
+  "scripts": {
+    "build": "electron-builder build --linux --arm64"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "7zip-bin": "^5.2.0",
+    "download": "^8.0.0",
+    "electron": "^21.4.4",
+    "electron-builder": "^26.0.12",
+    "lzma-native": "^8.0.6",
+    "node-7z": "^3.0.0",
+    "tar": "^7.5.2"
+  },
+  "build": {
+    "appId": "org.olenepal.mblockrasppi",
+    "files": [
+      "package.json"
+    ],
+    "beforePack": "beforePack.js",
+    "extraResources": [
+      {
+        "from": "build/mblock/resources/app.asar",
+        "to": "app.asar"
+      },
+      {
+        "from": "build/ml",
+        "to": "ml"
+      },
+      {
+        "from": "build/ml/node_modules",
+        "to": "ml/node_modules"
+      }
+    ],
+    "fileAssociations": [
+      {
+        "ext": "mblock",
+        "name": "mblock",
+        "mimeType": "application/x-mblock"
+      }
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Development",
+      "icon": "build/mblock/buildResources/icons/512x512.png"
+    }
+  }
+}
