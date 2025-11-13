@@ -5,9 +5,10 @@ const tar = require("tar");
 const { pipeline } = require("stream");
 const { extractFull } = require("node-7z");
 const sevenBin = require("7zip-bin");
-
-const MBLOCK_VERSION = "5.6.0";
-const ARDUINO_VERSION = "1.8.19";
+const {
+  mBlockVersion: MBLOCK_VERSION,
+  arduinoVersion: ARDUINO_VERSION,
+} = require("./versions.json");
 
 exports.default = async function () {
   // Create build directory if necessary
