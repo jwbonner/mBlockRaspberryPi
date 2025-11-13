@@ -78,7 +78,7 @@ To open a `.mext` file in the mBlock Developer Platform, follow the steps below:
 3. Navigate to "My Plugin" > "My Extension" > "Import Data" and select the `.mext` file.
 4. Click "OLE Nepal (Arduino)" in the list of extensions.
 
-> ![TIP]
+> [!TIP]
 > After importing the `.mext` file, the extension will be saved in the web interface and can be edited multiple times without reimporting.
 
 ### Editing an Extension
@@ -93,14 +93,14 @@ An example is shown below for the block that sets the speed of a DC motor. This 
 
 ![DC motor speed example](./img/motor-speed-example.png)
 
-> ![TIP]
+> [!TIP]
 > The mBlock documentation includes a simple example of creating a custom Arduino extension [here](https://support.makeblock.com/hc/en-us/articles/15235393507223-Example-Arduino-Create-an-LED-Extension-Using-the-Default-Arduino-Template), which explains how to configure a block for LED control with the corresponding C code.
 
 #### Libraries
 
-The "Add Source File" tab can be used to add header (`.h`) and implementation (`.cpp`) files which will be included when compiling the program. For example, the `AFMotor.h` and `AFMotor.cpp` libraries were downloaded from the [GitHub repository](https://github.com/adafruit/Adafruit-Motor-Shield-library) and added to the extension to support the Adafruit DC Motor Shield on the YAK robot. The `SmartServo.h` and `SmartServo.cpp` files are a custom library to support additional functionality on servo motors (such as modifying the speed).
+The "Add Source File" tab can be used to add header (`.h`) and implementation (`.cpp`) files which will be included when compiling the program. Library files can be freely removed or replaced on this tab to support additional hardware or define more complex functionality.
 
-Library files can be freely removed or replaced on this tab to support additional hardware or define more complex functionality.
+For example, the `AFMotor.h` and `AFMotor.cpp` libraries were downloaded from the [GitHub repository](https://github.com/adafruit/Adafruit-Motor-Shield-library) and added to the extension to support the Adafruit DC Motor Shield on the YAK robot. The `SmartServo.h` and `SmartServo.cpp` files are a custom library to support additional functionality on servo motors (such as modifying the speed).
 
 #### Other Configuration
 
