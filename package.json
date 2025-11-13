@@ -3,11 +3,11 @@
   "productName": "mBlock",
   "version": "5.6.0",
   "description": "mBlock for Raspberry Pi",
-  "homepage": "https://olenepal.org",
+  "homepage": "https://mblock.cc",
   "author": {
-    "name": "OLE Nepal",
-    "email": "info@olenepal.org",
-    "url": "https://olenepal.org"
+    "name": "Makeblock",
+    "email": "service@makeblock.com",
+    "url": "https://mblock.cc"
   },
   "main": "packages/main/dist/index.cjs",
   "scripts": {
@@ -24,7 +24,7 @@
     "tar": "^7.5.2"
   },
   "build": {
-    "appId": "org.olenepal.mblockrasppi",
+    "appId": "cc.mblock",
     "files": [
       "package.json"
     ],
