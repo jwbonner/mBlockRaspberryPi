@@ -30,10 +30,10 @@ These scripts build a version of the [mBlock](https://mblock.cc/pages/downloads)
 6. Run `npm run build` and wait for the process to complete. The correct version of Arduino will be downloaded automatically.
 7. Find the complete Linux package under `dist/mblock_X.X.X_arm64.deb`.
 
-To update mBlock or the Arduino version, simply change the version in `versions.json` and rebuild the Linux package using the instructions above. Note that non-trivial changes to mBlock may require additional changes to the build sequence. To support any future changes required, the steps used by the current build process are described in the dropdown below.
+To update mBlock or the Arduino version, simply change the version in `versions.json` and rebuild the Linux package using the instructions above. Note that non-trivial changes to mBlock may require additional changes to the build sequence. The full technical details of the build process can be found in the section below.
 
 <details>
-<summary>Detailed Build Process</summary>
+<summary>Technical Details</summary>
 
 mBlock is built using [Electron](https://www.electronjs.org/), which packages a web interface (built with HTML, CSS, and JS) into a native application. The mBlock application is available on macOS (arm64 and x64) and Windows (x64), but the goal of this project is to create a version for Linux using the arm64 architecture. There are a few components to the mBlock application which must be accounted for when porting to Linux:
 
@@ -62,4 +62,50 @@ mBlock is built using [Electron](https://www.electronjs.org/), which packages a 
 
 ## Editing the mBlock Extension
 
-TODO
+mBlock extensions are a flexible way to add support for new devices and blocks. Each extension is packaged into a `.mext` file and can be installed by dragging the file to the window of the mBlock application. Two extensions are attached on the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page of this project:
+
+- `arduino_uno.mext` is an offline version of the Arduino Uno extension for mBlock. This extension was not created by us but we created a `.mext` file so that it can be installed without using the standard extension browser in mBlock (which requires an internet connection).
+- `olenepal_arduino.mext` is a custom extension that includes the blocks required to control the YAK robotics kit. This extension can be expanded in the future to support new hardware configurations, as described below.
+
+**All extensions are edited through the [mBlock Developer Platform](https://ext.mblock.cc/#/exts/device).**
+
+### Importing an Extension
+
+To open a `.mext` file in the mBlock Developer Platform, follow the steps below:
+
+1. Navigate to the developer platform using the link above.
+2. Sign in with an mBlock account. This account can be created for free through the [sign up](https://ext.mblock.cc/#/login/register) page.
+3. Navigate to "My Plugin" > "My Extension" > "Import Data" and select the `.mext` file.
+4. Click "OLE Nepal (Arduino)" in the list of extensions.
+
+> ![TIP]
+> After importing the `.mext` file, the extension will be saved in the web interface and can be edited multiple times without reimporting.
+
+### Editing an Extension
+
+#### Blocks
+
+Configuring new blocks uses a graphical interface in the browser. For more information on how to configure new categories and blocks, check the documentation page [here](https://support.makeblock.com/hc/en-us/articles/15235802242199-Configuration-Configure-Blocks).
+
+For the Arduino platform, each block includes several snippets of C code to be inserted when using the block. This code runs in the same environment as the Arduino IDE. The syntax `/*{PARAMETER}*/` can be used to refer to the parameters configured for the block. Hover over the "?" icon next to each code block for more details.
+
+An example is shown below for the block that sets the speed of a DC motor. This code imports the `AFMotor.h` library, declares the motor object, and configured the speed (with the correct scaling) when the block is used.
+
+![DC motor speed example](./img/motor-speed-example.png)
+
+> ![TIP]
+> The mBlock documentation includes a simple example of creating a custom Arduino extension [here](https://support.makeblock.com/hc/en-us/articles/15235393507223-Example-Arduino-Create-an-LED-Extension-Using-the-Default-Arduino-Template), which explains how to configure a block for LED control with the corresponding C code.
+
+#### Libraries
+
+The "Add Source File" tab can be used to add header (`.h`) and implementation (`.cpp`) files which will be included when compiling the program. For example, the `AFMotor.h` and `AFMotor.cpp` libraries were downloaded from the [GitHub repository](https://github.com/adafruit/Adafruit-Motor-Shield-library) and added to the extension to support the Adafruit DC Motor Shield on the YAK robot. The `SmartServo.h` and `SmartServo.cpp` files are a custom library to support additional functionality on servo motors (such as modifying the speed).
+
+Library files can be freely removed or replaced on this tab to support additional hardware or define more complex functionality.
+
+#### Other Configuration
+
+The "Advanced Configuration" tab can be used to configure the version, description, and supported platforms for the extension. When modifying the extension, **we recommend increasing the version number** to differentiate from previous releases.
+
+### Exporting an Extension
+
+After editing an extension, click the "Download" button to generate and download the `.mext` file that can be imported into the mBlock application. After importing the new version of the extension, **always close and reopen the mBlock application to apply the changes**.
