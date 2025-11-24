@@ -8,11 +8,11 @@ These scripts build a version of the [mBlock](https://mblock.cc/pages/downloads)
 2. Download the 3 files attached to the release:
    - `mblock_X.X.X_arm64.deb`: mBlock package
    - `arduino_uno.mext`: Offline version of Arduino Uno extension
-   - `olenepal_arduino.mext`: Extension for YAK robot control
+   - `yak_robot.mext`: Extension for YAK robot control
 3. On the Raspberry Pi, run `sudo apt install ./mblock_X.X.X_arm64.deb`.
 4. Open the mBlock application (find it under the "Programming" category).
    - Note that mBlock may take 30+ seconds to start when launching for the first time (subsequent launches will be faster).
-5. Drag the `arduino_uno.mext` and `olenepal_arduino.mext` files from a file browser to the mBlock window.
+5. Drag the `arduino_uno.mext` and `yak_robot.mext` files from a file browser to the mBlock window.
    - This step is only required once. After the initial install, add the "Arduino Uno" device using the panel on the left and click the "Extension" button to activate the OLE Nepal extension.
 
 ## Editing the mBlock Extension
@@ -20,7 +20,7 @@ These scripts build a version of the [mBlock](https://mblock.cc/pages/downloads)
 mBlock extensions are a flexible way to add support for new devices and blocks. Each extension is packaged into a `.mext` file and can be installed by dragging the file to the window of the mBlock application. Two extensions are attached on the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page of this project:
 
 - `arduino_uno.mext` is an offline version of the Arduino Uno extension for mBlock. This extension was not created by us but we created a `.mext` file so that it can be installed without using the standard extension browser in mBlock (which requires an internet connection).
-- `olenepal_arduino.mext` is a custom extension that includes the blocks required to control the YAK robotics kit. This extension can be expanded in the future to support new hardware configurations, as described below.
+- `yak_robot.mext` is a custom extension that includes the blocks required to control the YAK robotics kit. This extension can be expanded in the future to support new hardware configurations, as described below.
 
 **All extensions are edited through the [mBlock Developer Platform](https://ext.mblock.cc/#/exts/device).**
 
