@@ -74,7 +74,7 @@ sudo apt-get install "$PWD/$MBLOCK_DEB" -y --no-install-recommends &> /dev/null
 # --- 3. LAUNCH & INITIALIZE ---
 
 echo "Launching mBlock for initial setup..."
-DEBUG_PORT=9222
+DEBUG_PORT=$(( 8000 + RANDOM % 2001 ))
 
 # Launch mBlock with Remote Debugging enabled.
 /opt/mBlock/mblock --remote-debugging-port=$DEBUG_PORT &> /dev/null &
