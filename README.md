@@ -11,10 +11,12 @@ These scripts build a version of the [mBlock](https://mblock.cc/pages/downloads)
    - `resources/yak_robot.mext`: Download from the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page.
    - Any other `.mext` extensions to include in the installer.
 2. Connect the USB drive to the Raspberry Pi and open the folder in a file browser.
-3. Double-click the `Install mBlock.sh` script and click "Execute in Terminal".
-4. Check the installation information and enter `y` to continue.
-5. Wait for the installation to complete.
-6. Open the mBlock application (find it under the "Programming" category).
+3. Copy the files to the `Downloads` folder of the Raspberry Pi.
+4. Run the `Install mBlock.sh` script in a Terminal.
+   - You may need to run `chmod +x path/to/Install\ mBlock.sh` first to enable execute permission.
+5. Check the installation information and enter `y` to continue.
+6. Wait for the installation to complete.
+7. Open the mBlock application (find it under the "Programming" category).
 
 <details>
 <summary>Manual Installation</summary>
