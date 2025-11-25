@@ -4,6 +4,21 @@ These scripts build a version of the [mBlock](https://mblock.cc/pages/downloads)
 
 ## Installing mBlock on a Raspberry Pi
 
+1. Create a USB drive containing the following files:
+   - `Install mBlock.sh`: Download from this repository.
+   - `resources/mblock_X.X.X_arm64.deb`: Download from the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page or [build locally](#building-mblock-for-raspberry-pi).
+   - `resources/arduino_uno.mext`: Download from the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page.
+   - `resources/yak_robot.mext`: Download from the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page.
+   - Any other `.mext` extensions to include in the installer.
+2. Connect the USB drive to the Raspberry Pi and open the folder in a file browser.
+3. Double-click the `Install mBlock.sh` script and click "Execute in Terminal".
+4. Check the installation information and enter `y` to continue.
+5. Wait for the installation to complete.
+6. Open the mBlock application (find it under the "Programming" category).
+
+<details>
+<summary>Manual Installation</summary>
+
 1. Navigate to the [releases](https://github.com/jwbonner/mBlockRaspberryPi/releases/latest) page.
 2. Download the 3 files attached to the release:
    - `mblock_X.X.X_arm64.deb`: mBlock package
@@ -14,6 +29,8 @@ These scripts build a version of the [mBlock](https://mblock.cc/pages/downloads)
    - Note that mBlock may take 30+ seconds to start when launching for the first time (subsequent launches will be faster).
 5. Drag the `arduino_uno.mext` and `yak_robot.mext` files from a file browser to the mBlock window.
    - This step is only required once. After the initial install, add the "Arduino Uno" device using the panel on the left and click the "Extension" button to activate the OLE Nepal extension.
+
+</details>
 
 ## Editing the mBlock Extension
 
