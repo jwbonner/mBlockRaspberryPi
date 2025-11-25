@@ -49,7 +49,7 @@ fi
 
 # Confirm installation
 echo "--------------------"
-echo "The full installation process will be completed in 2-3 minutes."
+echo "The full installation process will be completed in 3-4 minutes."
 echo "IMPORTANT: mBlock will open during installation. Do not interact with the application window during this time. The window will close automatically when installation is complete."
 echo
 read -p "Do you want to proceed with the installation? (y/n): " confirm
