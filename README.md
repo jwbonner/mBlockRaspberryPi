@@ -50,7 +50,7 @@ To open a `.mext` file in the mBlock Developer Platform, follow the steps below:
 1. Navigate to the developer platform using the link above.
 2. Sign in with an mBlock account. This account can be created for free through the [sign up](https://ext.mblock.cc/#/login/register) page.
 3. Navigate to "My Plugin" > "My Extension" > "Import Data" and select the `.mext` file.
-4. Click "OLE Nepal (Arduino)" in the list of extensions.
+4. Click extension name in the list of extensions.
 
 > [!TIP]
 > After importing the `.mext` file, the extension will be saved in the web interface and can be edited multiple times without reimporting.
